@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Moez A. AbdelGawad | Quantum Programming</title>
+<!-- Style borrowed AS IS from main index.html page. -->
+<style>
+:root{
+  --navy:#0b2748; --blue:#1768d5; --ink:#14213d; --muted:#5f6b7a;
+  --line:#e6ebf2; --soft:#f6f9fc; --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
+a{color:var(--blue);text-decoration:none}
+.container{max-width:1180px;margin:auto;padding:0 28px}
+nav{position:sticky;top:0;z-index:20;background:rgba(11,39,72,.97);color:#fff;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.navrow{height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-weight:800;letter-spacing:.2px}
+//.links{display:flex;gap:24px;flex-wrap:wrap;font-size:14px}
+//.links a{color:#fff}
+.hero{padding:56px 0 34px;background:linear-gradient(180deg,#fff 0%,#fbfdff 100%)}
+.hero-grid{display:grid;grid-template-columns:170px 1fr;gap:34px;align-items:center}
+.avatar{width:160px;height:160px;border-radius:50%;background:linear-gradient(145deg,#d7e5f7,#9ebee5);display:grid;place-items:center;color:#0b2748;font-weight:800;font-size:38px;border:7px solid #fff;box-shadow:0 8px 30px rgba(11,39,72,.16)}
+h1{font-size:42px;line-height:1.1;margin:0 0 8px;color:var(--navy)}
+.subtitle{font-size:20px;color:var(--blue);font-weight:800;margin-bottom:14px}
+.affils{color:#344054;font-size:15px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-block;padding:11px 16px;border:1px solid #c9d7eb;border-radius:8px;background:#fff;font-weight:700;font-size:14px}
+.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+section{padding:48px 0;border-top:1px solid var(--line)}
+h2{font-size:26px;margin:0 0 24px;color:var(--navy)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;box-shadow:0 8px 22px rgba(16,24,40,.04)}
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tag{padding:8px 12px;border-radius:999px;background:#edf4ff;color:#194f9b;font-size:13px;font-weight:700}
+.research-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.research-item{text-align:center;padding:22px 12px}
+.icon{font-size:34px;margin-bottom:10px}
+.research-item b{display:block;margin-bottom:6px}
+.research-item span{font-size:13px;color:var(--muted)}
+.pub-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pub h3{font-size:16px;line-height:1.35;color:#0b3a84;margin-top:0}
+.pub p{font-size:13px;color:var(--muted)}
+.project{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+.mock{border-radius:12px;background:#0b2748;padding:20px;min-height:300px;box-shadow:0 10px 28px rgba(11,39,72,.2)}
+.mock-inner{background:#fff;border-radius:8px;height:260px;display:grid;grid-template-columns:120px 1fr;overflow:hidden}
+.mock-side{background:#112f57}
+.mock-main{padding:18px}
+.circuit{height:120px;border:1px solid #dfe6ef;border-radius:6px;background:repeating-linear-gradient(0deg,#fff,#fff 22px,#f4f7fb 23px)}
+.bullets{padding-left:18px}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.latest-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.outreach-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.small{font-size:13px;color:var(--muted)}
+footer{background:var(--navy);color:#fff;padding:24px 0;margin-top:0}
+footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px}
+@media(max-width:900px){
+ .hero-grid,.grid2,.project{grid-template-columns:1fr}
+ .hero-grid{text-align:center}.avatar{margin:auto}.buttons{justify-content:center}
+ .research-grid{grid-template-columns:repeat(2,1fr)}
+ .pub-grid,.news-grid,.latest-grid,.outreach-grid{grid-template-columns:1fr 1fr}
+ //.links{display:none}
+}
+@media(max-width:560px){
+ h1{font-size:34px}.container{padding:0 18px}
+ .pub-grid,.news-grid,.research-grid,.latest-grid,.outreach-grid{grid-template-columns:1fr}
+}
+
+.menu {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+.burger span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  margin: 5px;
+  background: white;
+  transition: 0.3s;
+}
+
+//.links{display:flex;gap:24px;flex-wrap:wrap;font-size:14px}
+//.links a{color:#fff}
+
+@media (max-width: 900px) {
+  .burger {
+	display: block;
+  }
+
+  .menu {
+	display: none;
+	position: absolute;
+	top: 60px;
+	left: 0;
+	width: 100%;
+	background: navy;
+	flex-direction: column;
+	text-align: center;
+	padding: 20px 0;
+  }
+
+  .menu.active {
+	display: flex;
+  }
+
+  .menu li {
+	padding: 10px;
+  }
+}
+
+</style>
+	<style>
+		div.bordered {border-style: ridge;}
+	</style>
+<!--style type="text/css">
+  img: {border: 0}
+  table: {border="0"; cellspacing="0"; cellpadding="0"}
+  a:link {text-decoration: none; color:#000066}
+  a:visited {text-decoration: none; color:#666666}
+  a:active {text-decoration: none; color:blue}
+  a:hover {text-decoration: underline; color: red}
+</style-->
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("active");
+    }
+  </script>
+
+	<script type="text/javascript"
+			src="https://www.statcounter.com/counter/counter.js"
+			async></script>
+	<script type="text/javascript">
+		var sc_project=12846908;
+		var sc_invisible=1;
+		var sc_security="d5f1f806";
+	</script>
+</head>
+<body>
+<nav>
+  <div class="container navrow">
+    <div class="brand">Moez A. AbdelGawad</div>
+
+    <div class="burger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="menu" id="menu">
+      <a href="../../index.html#about">About</a>
+      <a href="../../index.html#research">Research</a>
+      <a href="../../index.html#publications">Publications</a>
+      <a href="../../index.html#qal">Projects (QAL)</a>
+      <a href="../../index.html#teaching">Teaching</a>
+      <a href="../../index.html#news">News</a>
+      <a href="../../index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<br>
+
+<div class="bordered">
+	<center><img src="./images/new.png" width="32" height="32"><br>NEW!!</img> <a href="https://q-info.github.io/QAL-Lite">QAL</a> (Quantum Algorithms Lab) is a webapp designed for teaching and researching quantum algorithms<br>and related mathematical fields&mdash;such as linear algebra and group theory&mdash;using a <i>visual interactive</i> approach.<br><br>You may like to check the latest stable version of QAL&nbsp;Lite, the lightweight edition of QAL, <a href="https://q-info.github.io/QAL-Lite">here</a>:<br><br><a href="https://q-info.github.io/QAL-Lite">https://q-info.github.io/QAL-Lite</a>.</center>
+<br>
+</div>
+<h2>Quantum Computing: An App-Oriented Approach (Quantum Programming)</h2>
+  <a href="#books"><u>Recommended Books</u></a>&nbsp;
+  &nbsp;<a href="#webpages"><u>Interesting Webpages</u></a>&nbsp;
+  &nbsp;<a href="#videos"><u>Recommended Videos</u></a><p>
+<table align="left" width="100%">
+<tr align="left" valign="top">
+<td width="57%">
+<h3>Course Schedule</h3>
+Fall 2019<br>Sat., 12:10pm-3:00pm<p>
+
+<h3>Lecture Slides</h3>
+<h4>Part I: Basics</h4>
+Lect 0: <a href="./PQC - Why Learn Quantum Computing (c).pdf">Why Learn About Quantum Computing</a><br>
+<br>
+Lect 01: <a href="./PQC - 1. Intro (c).pdf">Quantum Programming (QP): Introduction</a><br>
+Lect 02: <a href="./PQC - 2. PrimOps (c).pdf">QP: Primitive Operations</a><br>
+<br>
+Lect 03: <a href="./PQC - 3. Modules I - AL (c).pdf">QP: Modules: Arith. & Logic</a><br>
+Lect 04: <a href="./PQC - 4. Modules II - AA (c).pdf">QP: Modules: Amplit. Amplif. </a><br>
+Lect 05: <a href="./PQC - 5. Modules III - QFT (c).pdf">QP: Modules: QFT</a><br>
+Lect 06: <a href="./PQC - 6. Modules IV - PE (c).pdf">QP: Modules: Phase Est.</a><br>
+<h4>Part II: Apps</h4>
+Lect 07: <a href="./PQC - 7. Apps I - Sim (c).pdf">QP: Modules/Apps: Simulation</a><br>
+<br>
+Lect 08: <a href="./PQC - 8. Apps II - Srch (c).pdf">QP: Apps: Search</a><br>
+Lect 09: <a href="./PQC - 9. Apps III - Grphx (c).pdf">QP: Apps: Graphics</a><br>
+Lect 10: <a href="./PQC - 10. Apps IV - Crypt (c).pdf">QP: Apps: Cryptography</a><br>
+Lect 11: <a href="./PQC - 11. Apps V - QML (c).pdf">QP: Apps: Machine Learning</a><br>
+<br>
+Lect 12: <a href="./PQC - 12. Future.pdf">QP: The Future (available upon request)</a>
+<p>
+<h3>Useful Links</h3>
+<a href="http://oreilly-qc.github.io/" target="_">QCEngine</a><br>
+<a href="https://quantiki.org/wiki/list-qc-simulators">List of quantum computing simulators</a>
+</td>
+</tr><tr>
+<td width="43%">
+<p>
+<h3>Course Textbook</h3>
+<a href="http://shop.oreilly.com/product/0636920167433.do"><img src="textbook.png" width="360" height="473"></a><p>
+<a href="https://github.com/oreilly-qc/oreilly-qc.github.io/blob/master/errata/errata.md">Confirmed Errata</a><p>
+<a href="https://www.oreilly.com/catalog/errataunconfirmed.csp?isbn=0636920167433">Unconfirmed Errata</a>
+</td>
+</tr>
+<!--tr><td><hr size="1" width="100%"></td><td><hr size="1" width="100%"></td></tr-->
+</table>
+<table width="100%">
+<tr>
+<td width="55%">
+<hr>
+<h3 id="books">Recommended &lsquo;Quantum X&rsquo; Books</h3>
+<blockquote>
+"To read <i>one</i> book thrice is more beneficial to me than reading three books once" -- Abbas AlAqqaad
+</blockquote>
+<!-- starred books are ones I am significantly familiar with -->
+General: &star; <a href="https://www.amazon.com/dp/3319988239/" target="_">The Second Quantum Revolution</a>, Springer, 2019<br>
+
+<h4>X = Computing</h4>
+&star; <a href="https://www.amazon.com/dp/0262039257/" target="_">Quantum Computing for Everyone</a>, MIT Press, 2019<br>
+<a href="https://www.amazon.com/dp/0262526670/" target="_">Quantum Computing: A Gentle Introduction</a>, MIT Press, 2014<br>
+&star; <a href="https://www.amazon.com/dp/1107002176/" target="_">Quantum Computation and Quantum Information</a> (&ldquo;Mike & Ike&rdquo;), Cambridge University Press, 2010<br>
+<a href="https://www.amazon.com/dp/B010BA6ME6/" target="_">Quantum Computing Explained</a>, Wiley, 2008<br>
+<!--a href="https://www.amazon.com/dp//" target="_">, 20</a><br-->
+
+<h4>X = Applications</h4>
+&star; <a href="https://www.amazon.com/dp/9813293306/" target="_">Quantum Image Processing</a>, Springer, 2020<br>
+<a href="https://www.amazon.com/dp/0128100400/" target="_">Quantum Machine Learning</a>, Elsevier (AP), 2016<br>
+&star; <a href="https://www.amazon.com/dp/B00CC8X0FU/" target="_">Schr&ouml;dinger's Killer App</a> (Quantum Cryptography), CRC Press, 2013<br>
+
+<h4>X = Programming</h4>
+<a href="https://www.amazon.com/dp/1617296325/" target="_">Quantum Computing for Developers</a>, Manning Publications, 2020<br>
+&star; <a href="https://www.amazon.com/dp/3030239217/" target="_">Quantum Computing: An Applied Approach</a>, Springer, 2019<br>
+&star; <a href="http://shop.oreilly.com/product/0636920167433.do" target="_">Programming Quantum Computers</a>, O&rsquo;Reilly, 2019<br>
+&star; <a href="https://www.amazon.com/dp/1484242173/" target="_">Practical Quantum Computing for Developers</a>, Apress, 2018<br>
+&star; <a href="https://www.amazon.com/dp/0128023066/" target="_">Foundations of Quantum Programming</a>, Elsevier (MK), 2016<br>
+<a href="https://www.amazon.com/dp/0521879965/" target="_">Quantum Computing for Computer Scientists</a>, Cambridge University Press, 2008<br>
+<a href="https://www.amazon.com/dp/0521876583/" target="_">Quantum Computer Science: An Introduction</a>, Cambridge University Press, 2008<br>
+&star; <a href="https://www.amazon.com/dp/1400033861/" target="_">Programming the Universe</a>, Random House, 2007<br>
+
+<h4>X = Science/Math</h4>
+&star; <a href="https://www.amazon.com/dp/110710422X/" target="_">Picturing Quantum Processes</a>, Cambridge University Press, 2017<br>
+&star;&star; <a href="https://www.amazon.com/dp/0691118809/" target="_">The Princeton Companion to Mathematics</a>, Princeton University Press, 2008<br>
+&star; <a href="https://www.amazon.com/dp/0679454438/" target="_">The Road to Reality</a>, Random House, 2005<br>
+
+<h4>X = Physics</h4>
+<a href="https://www.amazon.com/dp/1524743011/" target="_">Something Deeply Hidden</a>, OneWorld, 2019<br>
+<a href="https://www.amazon.com/dp/B01N0LOOE3/" target="_">Tales of The Quantum</a>, Oxford University Press, 2017<br>
+&star; <a href="https://www.amazon.com/dp/B00KFEK0I8/" target="_">Introducing Quantum Theory: A Graphic Guide</a>, Icon Books, 2014<br>
+<a href="https://www.amazon.com/dp/B000QXDB7K/" target="_">Advanced Visual Quantum Mechanics</a>, Springer, 2005<br>
+<a href="https://www.amazon.com/dp/0387989293/" target="_">Visual Quantum Mechanics</a>, Springer, 2002<br>
+<!--a href="https://www.amazon.com/dp/TODO/" target="_">TODO</a>, 20<br-->
+</td></tr>
+<td width="2%"></td>
+<tr>
+<td valign="top" width="43%">
+<hr>
+<h3 id="webpages">Interesting Webpages</h3>
+<li><a href="https://www.cs.ox.ac.uk/QNLP2019/" target="_">QNLP 2019</a></li>
+<li><a href="https://www.semanticscholar.org/paper/The-Hidden-Subgroup-Problem-and-Eigenvalue-on-a-Mosca-Ekert/9576abcb9a23638c6d23d5afb3b77444032aecd9/" target="_">HSP and eigenvalue estimation</a></li>
+<li><a href="https://home.cern/news/announcement/computing/apply-first-quantum-computing-hackathon-cern-october" target="_">First quantum-computing hackathon @ CERN</a>
+<li><a href="https://www.nytimes.com/2019/10/21/science/quantum-computer-physics-qubits.html" target="_">Coming, bit by qubit</a></li>
+<li><a href="http://quantumalgorithmzoo.org/" target="_">Quantum algorithm zoo</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hadamard_transform" target="_">Hadamard transform</a> (wikipedia)</li>
+<li><a href="https://en.wikipedia.org/wiki/Fourier_transform" target="_">Fourier transform</a> (wikipedia)</li>
+<li><a href="https://thefouriertransform.com" target="_">The Fourier transform website</a></li>
+<li><a href="https://phys.org/news/2019-09-quantum-convolutional-neural-networks.html" target="_">Quantum convolutional neural networks (QCNNs)</a></li>
+<li><a href="https://www.nature.com/articles/d41586-019-00771-0" target="_">Machine learning in quantum spaces</a></li>
+<li><a href="https://vqm.uni-graz.at/index.html" target="_">Visual quantum mechanics</a></li>
+<li><a href="https://thequantumdaily.com/2019/11/18/the-worlds-top-12-quantum-computing-research-universities/" target="_">Top 12 QC research universities</a></li>
+<li>More to come...</li>
+<!--a href="TODO" target="_">Volkswagen?</a>
+<!--a href="TODO" target="_">Solving Unknown Problems?</a-->
+<br>
+<hr>
+<h3 id="videos">Recommended Videos and Animations</h3>
+<li><a href="https://www.youtube.com/watch?v=311baBOQARQ" target="_">Fabric of the cosmos (Nova HD)</a></li>
+<li><a href="https://www.youtube.com/watch?v=AE8MaQJkRcg" target="_">A &lsquo;loophole-free&rsquo; Bell test</a></li>
+<li><a href="http://www.bubblycloud.com/billiard/fredkin-from-switches.html" target="_">Fredkin gate (C-SWAP) from billiard balls</a></li>
+<!--li><a href="TODO:From VQM" target="_"></a></li-->
+<li>Many more to come...</li>
+<!--li><a href="" target="_"></a></li>
+<li><a href="" target="_"></a></li>
+<li><a href="" target="_"></a></li-->
+</td>
+</tr>
+</table>
+
+<footer>
+<div class="container row">
+  <span>© 2026 Moez A. AbdelGawad. All rights reserved.</span>
+  <span>Last updated: Oct. 16, 2026</span>
+</div>
+</footer>
+
+</body>
+</html>
