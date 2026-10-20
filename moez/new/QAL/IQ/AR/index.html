@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Moez A. AbdelGawad | Introducing QAL (in Arabic. AI-assisted. Verified)</title>
+  <!-- Style borrowed AS IS from main index.html page. -->
+  <style>
+    :root {
+      --navy: #0b2748;
+      --blue: #1768d5;
+      --ink: #14213d;
+      --muted: #5f6b7a;
+      --line: #e6ebf2;
+      --soft: #f6f9fc;
+      --white: #fff;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.6
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: auto;
+      padding: 0 28px
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(11, 39, 72, .97);
+      color: #fff;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, .08)
+    }
+
+    .navrow {
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: .2px
+    }
+
+    .hero {
+      padding: 56px 0 34px;
+      background: linear-gradient(180deg, #fff 0%, #fbfdff 100%)
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 34px;
+      align-items: center
+    }
+
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #d7e5f7, #9ebee5);
+      display: grid;
+      place-items: center;
+      color: #0b2748;
+      font-weight: 800;
+      font-size: 38px;
+      border: 7px solid #fff;
+      box-shadow: 0 8px 30px rgba(11, 39, 72, .16)
+    }
+
+    h1 {
+      font-size: 42px;
+      line-height: 1.1;
+      margin: 0 0 8px;
+      color: var(--navy)
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: var(--blue);
+      font-weight: 800;
+      margin-bottom: 14px
+    }
+
+    .affils {
+      color: #344054;
+      font-size: 15px
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 16px;
+      border: 1px solid #c9d7eb;
+      border-radius: 8px;
+      background: #fff;
+      font-weight: 700;
+      font-size: 14px
+    }
+
+    .btn.primary {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue)
+    }
+
+    section {
+      padding: 48px 0;
+      border-top: 1px solid var(--line)
+    }
+
+    h2 {
+      font-size: 26px;
+      margin: 0 0 24px;
+      color: var(--navy)
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 8px 22px rgba(16, 24, 40, .04)
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #edf4ff;
+      color: #194f9b;
+      font-size: 13px;
+      font-weight: 700
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px
+    }
+
+    .research-item {
+      text-align: center;
+      padding: 22px 12px
+    }
+
+    .icon {
+      font-size: 34px;
+      margin-bottom: 10px
+    }
+
+    .research-item b {
+      display: block;
+      margin-bottom: 6px
+    }
+
+    .research-item span {
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    .pub-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px
+    }
+
+    .pub h3 {
+      font-size: 16px;
+      line-height: 1.35;
+      color: #0b3a84;
+      margin-top: 0
+    }
+
+    .pub p {
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      align-items: center
+    }
+
+    .mock {
+      border-radius: 12px;
+      background: #0b2748;
+      padding: 20px;
+      min-height: 300px;
+      box-shadow: 0 10px 28px rgba(11, 39, 72, .2)
+    }
+
+    .mock-inner {
+      background: #fff;
+      border-radius: 8px;
+      height: 260px;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      overflow: hidden
+    }
+
+    .mock-side {
+      background: #112f57
+    }
+
+    .mock-main {
+      padding: 18px
+    }
+
+    .circuit {
+      height: 120px;
+      border: 1px solid #dfe6ef;
+      border-radius: 6px;
+      background: repeating-linear-gradient(0deg, #fff, #fff 22px, #f4f7fb 23px)
+    }
+
+    .bullets {
+      padding-left: 18px
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px
+    }
+
+    .latest-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px
+    }
+
+    .outreach-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px
+    }
+
+    .small {
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    footer {
+      background: var(--navy);
+      color: #fff;
+      padding: 24px 0;
+      margin-top: 0
+    }
+
+    footer .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 13px
+    }
+
+    @media(max-width:900px) {
+
+      .hero-grid,
+      .grid2,
+      .project {
+        grid-template-columns: 1fr
+      }
+
+      .hero-grid {
+        text-align: center
+      }
+
+      .avatar {
+        margin: auto
+      }
+
+      .buttons {
+        justify-content: center
+      }
+
+      .research-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .pub-grid,
+      .news-grid,
+      .latest-grid,
+      .outreach-grid {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media(max-width:560px) {
+      h1 {
+        font-size: 34px
+      }
+
+      .container {
+        padding: 0 18px
+      }
+
+      .pub-grid,
+      .news-grid,
+      .research-grid,
+      .latest-grid,
+      .outreach-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .menu {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .burger {
+      display: none;
+      cursor: pointer;
+    }
+
+    .burger span {
+      display: block;
+      width: 28px;
+      height: 3px;
+      margin: 5px;
+      background: white;
+      transition: 0.3s;
+    }
+
+    @media (max-width: 900px) {
+      .burger {
+        display: block;
+      }
+
+      .menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: navy;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      .menu.active {
+        display: flex;
+      }
+
+      .menu li {
+        padding: 10px;
+      }
+    }
+  </style>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("active");
+    }
+  </script>
+
+  <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+  <script type="text/javascript">
+    var sc_project = 12846908;
+    var sc_invisible = 1;
+    var sc_security = "d5f1f806";
+  </script>
+</head>
+
+<body>
+  <nav>
+    <div class="container navrow">
+      <div class="brand">Moez A. AbdelGawad</div>
+
+      <div class="burger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="menu" id="menu">
+        <a href="../../../#about">About</a>
+        <a href="../../../#research">Research</a>
+        <a href="../../../#publications">Publications</a>
+        <a href="../../../#qal">Projects (QAL)</a>
+        <a href="../../../#teaching">Teaching</a>
+        <a href="../../../#news">News</a>
+        <a href="../../../#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <br>
+
+  <center>
+    <br>
+
+    <h2 id="IQ-arabic" lang="ar" dir="rtl">
+      مقدمة لبرنامج ال <a href="../../../index.html#qal">QAL</a> باللغة العربية - Arabic Introduction to <a
+        href="../../../index.html#qal">QAL</a>
+    </h2>
+  </center>
+
+  <div lang="ar" dir="rtl">
+
+    <p>
+      <b>ما هو QAL؟</b>
+    </p>
+    <p>
+      برنامج QAL ليس «برنامجًا لتشغيل أو تنفيذ الخوارزميات الكمومية» بالمعنى المعتاد. بل هو بيئة مرئية وتفاعلية تساعدك
+      على التجربة أو التجريب («اللعب») بالخوارزميات الكمومية وفهم الأسس الرياضية لها.
+    </p>
+    <p>
+      <b>ما هو QAL تحديدًا؟</b>
+    </p>
+    <p>
+      يمكن التعبير عن مفهوم QAL بصورة تقريبية باعتباره مختبرًا للخوارزميات الكمومية (Quantum Algorithms Lab)، أي مختبرًا
+      لإجراء التجارب على الخوارزميات الكمومية&mdash;ومن هنا جاءت التسمية.
+    </p>
+    <p>
+      وبصورة أكثر دقة، فإن QAL هو «ملعب افتراضي» (Virtual Playground)—أي مختبر افتراضي تتفاعل فيه مع الخوارزميات
+      الكمومية بطريقة مرئية، بدلًا من الاضطرار إلى كتابة شفرات (أكواد) كمومية أو التعامل فقط مع الصيغ الرياضية المجردة.
+    </p>
+    <p>
+      ما يميز QAL بشكل خاص هو أنه يحاول أن يتيح لك «لمس» الرياضيات، والتفاعل معها، ورؤية تأثير تغييرها بصورة مرئية. فعلى
+      سبيل المثال، بدلًا من مجرد كتابة المعادلة
+      <center>
+        &#x3A8;'&#x27E8; = U|&#x3A8;&#x27E9;|
+      </center>
+      للدلالة على أن العملية الكمومية U تحوّل الحالة Ψ إلى الحالة 'Ψ، والتعامل معها باعتبارها معادلة مجردة، يحاول QAL أن
+      يريك ما يحدث للمتجهات والمصفوفات والسعات والأطوار (vectors, matrices, amplitudes, phases) أثناء تنفيذ العمليات
+      الكمومية.
+    </p>
+    <p>
+      <b>لماذا يختلف QAL عن محاكي كمومي (Quantum Simulator) عادي؟</b>
+    </p>
+    <p>
+      هذه نقطة مهمة جدًا. يوضح مؤلف البرنامج، <a href="../../../">د. معز عادل عبد الجواد</a>، أن QAL ليس محاكيًا كموميًا
+      بالمعنى التقليدي، ولا ينبغي اعتباره بديلًا عن محاكيات الحوسبة الكمومية التقليدية.
+    </p>
+    <p>
+      غالبًا ما يجعلك المحاكي التقليدي تعمل على مستوى مثل
+      <center>Qubit (كيوبت) ← Gate (بوابة) ← Circuit (دائرة) ← Measurement (قياس)</center>
+      بينما يحاول QAL النزول إلى مستوى أعمق:
+      <center>الخوارزمية الكمومية ← المصفوفات ← المتجهات ← السعات المركبة ← البنية الرياضية.</center>
+    </p>
+    <p>
+      وبعبارة أخرى، يمكنك دراسة البنية الرياضية الداخلية للخوارزمية نفسها. ولهذا السبب يستخدم المؤلف تشبيهًا لطيفًا:
+      التفاعل مع مكونات الخوارزمية الكمومية يشبه العمل بقطع الليغو (Lego) أو مكعب روبيك (Rubik's Cube)—فأنت تغيّر
+      الأشياء، وتجرب، وترى ما يحدث.
+    </p>
+    <p>
+      <b>ما علاقة الجبر الخطي (Linear Algebra) بذلك؟</b>
+    </p>
+    <p>
+      هذه هي النقطة الأهم لفهم QAL.
+    </p>
+    <p>
+      يمكن تمثيل عمليات الخوارزمية الكمومية رياضيًا باستخدام مصفوفات ذات قيم مركبة (complex-valued matrices)، بينما يمكن
+      تمثيل الحالة الكمومية باستخدام متجهات ذات قيم مركبة. وعندما توضع عدة عمليات كمومية متتابعة (وراء/خلف بعضها)، تصبح
+      مؤلفتها الرياضية (أي تركيبها رياضيًا) عبارة عن ضرب للمصفوفات.
+    </p>
+    <p>
+      لذلك، لا يهدف QAL إلى تعليمك الحوسبة الكمومية بمعزل عن الرياضيات. بل يحاول أن يجعلك ترى العلاقة بينهما:
+      <center>
+        الحوسبة الكمومية ← الخوارزميات الكمومية ← الجبر الخطي ← المتجهات + المصفوفات + الأعداد المركبة ← نظرية الزمر /
+        نظرية الرسوم البيانية.
+      </center>
+    </p>
+    <p>
+      تذكر <a href="https://easychair.org/publications/preprint/mgxl">الورقة البحثية التي تقدم QAL</a> تحديدًا الجبر
+      الخطي ونظرية الزمر ونظرية الرسوم البيانية/المخططات (linear algebra وgroup theory وgraph theory) باعتبارها مجالات
+      أساسية في الرياضيات يحاول QAL عرضها بطريقة مرئية وتفاعلية.<br>
+    </p>
+    <p>
+      <b>ماذا يمكنك أن تفعل داخل QAL؟</b>
+    </p>
+    <p>
+      وفقًا للورقة البحثية التي تقدم البرنامج، هناك مستويان رئيسيان للتفاعل مع QAL.
+    </p>
+    <p>
+      يتعامل مستوى التفاعل الأعلى مع
+    <ul>
+      <li>الكيوبتات (Qubits)
+      <li>البوابات الكمومية (Quantum Gates)
+      <li>الدوائر الكمومية (Quantum Circuits)
+      <li>الخوارزميات (Algorithms)
+    </ul>وهذا مشابه لما تجده في أدوات الحوسبة الكمومية الأخرى.
+
+    </p>
+    <p>أما المستوى الرياضي الأعمق، وهو الجزء المميز في QAL، فيتعامل مع
+
+    <ul>
+      <li>المتجهات
+      <li>المصفوفات
+      <li>الأعداد المركبة
+      <li>السعات الكمومية
+      <li>المقادير (magnitudes)
+      <li>الأطوار (phases)
+      <li>التباديل (permutations)
+      <li>الزمر (groups)
+      <li>الرسوم البيانية/المخططات (graphs)
+    </ul>تحاول الواجهة تمثيل هذه المفاهيم باستخدام الصور والألوان والرسومات التفاعلية، مما يتيح لك رؤية العلاقات بدلًا
+    من مجرد القراءة عنها في كتاب.<br>
+
+    </p>
+    <p>
+      <b>ماذا يعني «اللعب بالخوارزميات الكمومية»؟</b>
+    </p>
+    <p>
+      هذا هو جوهر فلسفة QAL.</p>
+    <p>فبدلًا من التعلم من خلال
+
+      <center>
+        اقرأ النظرية ← احفظ المعادلة ← اكتب البرنامج ← شغّله،
+      </center>
+      تصبح الفكرة:
+      <center>
+        جرّب ← غيّر ← لاحظ ← اكتشف نمطًا ← كوّن فرضية ← اختبرها ← افهم الرياضيات.
+      </center>
+    </p>
+    <p>
+      تطلق الورقة على هذا النهج اسم «التجربة والخطأ المحسوب» (calculated trial and error) أو «تجارب ماذا لو» (what if”
+      experimentation“)—أي إجراء تجارب مقصودة محسوبة لاكتشاف ماذا يحدث عندما تغيّر جزءًا من الخوارزمية.
+    </p>
+    <p>
+      وهذا يجعل QAL أقرب إلى مختبر رياضيات تفاعلي منه إلى مجرد محاكي برمجي.<br>
+    </p>
+    <p>
+      <b>لمن صُمم QAL؟</b>
+    </p>
+    <p>
+      تحدد الورقة مجموعتين أو فئتين رئيسيتين
+    </p>
+    <p>
+      لأغراض التعليم:
+    <ul>
+      <li>طلاب المدارس، ولا سيما طلاب STEM
+      <li>طلاب المرحلة الجامعية
+      <li>طلاب علوم الحاسب
+      <li>طلاب الرياضيات
+      <li>طلاب الفيزياء
+    </ul>
+    ولأغراض البحث:
+    <ul>
+      <li>طلاب الدراسات العليا
+      <li>الباحثون
+      <li>العاملون في مجالات مرتبطة بالرياضيات والحوسبة الكمومية
+    </ul>ولا تقتصر فكرة التفاعل المرئي مع المتجهات والمصفوفات على الحوسبة الكمومية. وتشير الورقة إلى أن الطريقة التي
+    يعرض بها QAL الجبر الخطي يمكن أن تكون مفيدة أيضًا في مجالات مثل
+
+    <ul>
+      <li>التعلم الآلي / الذكاء الاصطناعي
+      <li>رسوميات الحاسوب (Computer Graphics)
+      <li>الأمن السيبراني
+      <li>الروبوتات
+      <li>الفيزياء الرياضية
+    </ul>
+    </p>
+    <p>
+      <b>QAL وQAL Lite</b>
+    </p>
+    <p>
+      هناك إصداران من البرنامج</p>
+    <p><b>QAL</b>: الإصدار الكامل، ويحتوي على مجموعة أكبر من الأدوات والتصورات التفاعلية.<br>
+      <b><a href="https://q-info.github.io/QAL-Lite">QAL Lite</a></b>: إصدار أخف متاح عبر الإنترنت، صُمم لتوفير جزء
+      أساسي من تجربة QAL في صورة أبسط.<br>
+
+    </p>
+    <p>
+      <b>الخلاصة الأساسية</b>
+    </p>
+    <p>
+      إذا أردت تلخيص QAL في جملة واحدة: فإن QAL هو بيئة مرئية/بصرية وتفاعلية تحول الخوارزميات الكمومية والرياضيات التي
+      تقوم عليها إلى شيء يمكنك استكشافه والتجريب معه بصريًا، بدلًا من التعامل معها كمجرد معادلات أو شيفرة (كود).
+    </p>
+    <p>
+      الفكرة الأساسية ليست أن QAL سيؤدي العمل نيابةً عنك أو بدلًا منك، بل أنه سيساعدك على تطوير حدس (intuition) يوضح
+      لماذا تعمل الخوارزمية بالطريقة التي تعمل بها.
+    </p>
+    <center>-----</center>
+    <p>
+      <b>وصف آخر لـ QAL</b>
+    </p>
+    <p>
+      برنامج QAL (مختبر الخوارزميات الكمومية) هو أداة مبتكرة ومرئية وتفاعلية، طُوّرت كتطبيق ويب—ملعب افتراضي—صُمم
+      للتجريب بالخوارزميات الكمومية والرياضيات التي تقوم عليها، مثل الجبر الخطي ونظرية الزمر ونظرية الرسوم
+      البيانية/المخططات.
+    </p>
+    <p>
+      أنشأ الأداة <a href="../../../">د. معز عبد الجواد</a> من معهد بحوث المعلوماتية (IRI) التابع لـ <a
+        href="https://www.srtacity.sci.eg">مدينة الأبحاث العلمية والتطبيقات التكنولوجية (SRTA-City)</a> في مصر.
+    </p>
+    <p>
+      <b>🎯 هدف QAL</b>
+    </p>
+    <p>
+      صُمم QAL لمساعدة الطلاب والباحثين على تطوير فهم عميق وحدسي للخصائص الرياضية للخوارزميات الكمومية، بدلًا من حصرهم
+      في الاقتصار على التجريدات الرياضية المعقدة.
+    </p>
+    <p>
+      يعتمد البرنامج على فكرة أن العقل البشري مهيأ بطبيعته للتفكير بالصور. ولذلك يستخدم رسومات تفاعلية لجعل المفاهيم
+      الكمومية أكثر وضوحًا وأسهل فهمًا.
+    </p>
+    <p>
+      <b>✨ الميزات الرئيسية</b>
+    </p>
+    <p>
+      <i>العروض المرئية للخوارزميات (QAL Algorithm Presentations) — عروض خوارزميات QAL</i><br>
+    </p>
+    <p>
+      يعرض QAL الخوارزمية الكمومية كسلسلة من المصفوفات، مع تمثيل مرئي لكل خطوة، بينما يعرض العملية الكلية في أقصى
+      اليمين.
+    </p>
+    <p>
+      تشمل أنواع العروض
+    <ul>
+      <li>الخرائط الحرارية
+      <li>مخططات الدوائر الكمومية
+      <li>تصورات/عروض مرئية مبتكرة أخرى
+    </ul>
+    </p>
+    <p>
+      <i>التفاعل المباشر</i>
+    </p>
+    <p>
+      يمكن للمستخدمين تحديد أي عنصر من عناصر المصفوفة أو المتجه وتغيير طوره ومقداره مباشرةً عن طريق تحريك الرموز
+      الرسومية أو سحبها، دون الحاجة إلى كتابة الرموز الرياضية أو الشفرات/الأكواد البرمجية.<br>يتم تحديث النتائج فورًا،
+      مما يتيح للمستخدمين رؤية تأثير تغييراتهم على العملية الكلية.
+
+    </p>
+    <p>
+      <i>الرياضيات التجريبية</i>
+    </p>
+    <p>
+      يتيح QAL للمستخدمين اكتشاف الحقائق الرياضية والتحقق منها بطريقة مرئية وتفاعلية.
+    </p>
+    <p>
+      فعلى سبيل المثال، يمكن للمستخدمين التحقق من أن تطبيق عملية NOT متبوعة بعمليتي QFT (تحويل فورييه الكمومي) يعادل
+      عملية «إضافة 1» (الدوران في اتجاه عقارب الساعة).<br>ويمكنهم أيضًا ملاحظة أن ضرب مصفوفة من اليمين في NOT يقلب
+      أعمدتها، بينما يؤدي ضربها من اليسار إلى قلب صفوفها.
+
+    </p>
+    <p>
+      <i>معمارية/بنية MVC وتقنيات الويب</i>
+    </p>
+    <p>
+      تم بناء QAL باستخدام HTML5/CSS وJavaScript/TypeScript. ويستخدم مكتبة D3.js للرسومات ومكتبة jQuery UI لعناصر التحكم
+      في الواجهة.
+    </p>
+    <p>
+      <b>🆚 QAL مقابل QAL Lite</b>
+    </p>
+    <p>
+      هناك إصداران من الأداة<br><b>QAL Lite</b>
+
+    <ul>
+      <li>إصدار خفيف متاح مجانًا عبر الإنترنت على <a href="https://q-info.github.io/QAL-Lite">صفحة QAL Lite</a>.
+      <li>يحتوي على ثلاثة تصورات/عروض مرئية تفاعلية أساسية:
+        <ul>
+          <li>الخرائط الحرارية
+          <li>الدوائر الكمومية
+          <li>تصور/عرض ثالث للتمثيلات النصية للمصفوفات
+        </ul>
+      <li>مناسب للاستخدام الأساسي والتعليمي.
+    </ul>
+    </p>
+    <p>
+      <b>QAL الكامل</b>
+    <ul>
+      <li>يتضمن كل ما هو موجود في QAL Lite، بالإضافة إلى سبعة تصورات/عروض مرئية متقدمة تُعرف باسم QA-LA NIVs.
+      <li>QA-LA NIVs هي (مجموعة من) تقنيات برمجية مبتكرة يمكن تسجيلها للحماية بموجب براءة اختراع، وتضيف قيمة بحثية
+        وتعليمية كبيرة من خلال الربط بين الخوارزميات الكمومية ونظرية الرسوم البيانية.
+      <li>مناسبة للاستخدام التعليمي والبحثي الأساسي والمتقدم.
+    </ul>العلاقة بين الإصدارين تشبه إلى حد ما سيارة عادية (QAL Lite) مقابل سيارة رياضية فاخرة (QAL): إذ إن إضافة QA-LA
+    NIVs إلى QAL Lite تمنح QAL قدرات ونطاقًا أكبر بكثير.
+
+    </p>
+    <p>
+      <b>📚 الاستخدامات</b>
+    </p>
+    <p>
+      <i>في التعليم</i>
+    </p>
+    <p>
+      يستهدف QAL طلاب المدارس—وخاصة طلاب مدارس STEM—بالإضافة إلى طلاب المرحلة الجامعية في علوم الحاسب والرياضيات
+      والفيزياء.<br>
+      ويساعدهم على التغلب على صعوبة التجريد الرياضي من خلال السماح لهم بالتعامل مع مفاهيم مثل المصفوفات والمتجهات
+      باعتبارها كائنات ملموسة يمكنهم التجريب معها و«اللعب» بها.
+    </p>
+    <p>
+      <i>في البحث</i>
+    </p>
+    <p>
+      يمكن أن يعمل QAL كمساعد بحثي للخوارزميات الكمومية (QA RA)، حيث يساعد طلاب الدراسات العليا والباحثين على فهم
+      الخصائص البنيوية (structural properties) للخوارزميات الكمومية.
+    </p>
+    <p>
+      ويشمل ذلك مجالات مثل
+    <ul>
+      <li>تحليل القيم الذاتية (eigenvalues والمعروفة باسم الطيف) والمتجهات الذاتية للعمليات الكمومية.
+      <li>دراسة البنية التكرارية/الاستدعائية (ذاتية التشابه) للعمليات الكمومية الفعالة.
+    </ul>
+    </p>
+
+  </div>
+
+  <br>
+  <br>
+
+  <footer>
+    <div class="container row">
+      <span>© 2026 Moez A. AbdelGawad. All rights reserved.</span>
+      <span>Last updated: Oct. 15, 2026</span>
+    </div>
+  </footer>
+
+</body>
+
+</html>

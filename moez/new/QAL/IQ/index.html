@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Moez A. AbdelGawad | Introducing QAL (English)</title>
+  <!-- Style borrowed AS IS from main index.html page. -->
+  <style>
+    :root {
+      --navy: #0b2748;
+      --blue: #1768d5;
+      --ink: #14213d;
+      --muted: #5f6b7a;
+      --line: #e6ebf2;
+      --soft: #f6f9fc;
+      --white: #fff;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.6
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: auto;
+      padding: 0 28px
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(11, 39, 72, .97);
+      color: #fff;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, .08)
+    }
+
+    .navrow {
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: .2px
+    }
+
+    .hero {
+      padding: 56px 0 34px;
+      background: linear-gradient(180deg, #fff 0%, #fbfdff 100%)
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 34px;
+      align-items: center
+    }
+
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #d7e5f7, #9ebee5);
+      display: grid;
+      place-items: center;
+      color: #0b2748;
+      font-weight: 800;
+      font-size: 38px;
+      border: 7px solid #fff;
+      box-shadow: 0 8px 30px rgba(11, 39, 72, .16)
+    }
+
+    h1 {
+      font-size: 42px;
+      line-height: 1.1;
+      margin: 0 0 8px;
+      color: var(--navy)
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: var(--blue);
+      font-weight: 800;
+      margin-bottom: 14px
+    }
+
+    .affils {
+      color: #344054;
+      font-size: 15px
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 16px;
+      border: 1px solid #c9d7eb;
+      border-radius: 8px;
+      background: #fff;
+      font-weight: 700;
+      font-size: 14px
+    }
+
+    .btn.primary {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue)
+    }
+
+    section {
+      padding: 48px 0;
+      border-top: 1px solid var(--line)
+    }
+
+    h2 {
+      font-size: 26px;
+      margin: 0 0 24px;
+      color: var(--navy)
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 8px 22px rgba(16, 24, 40, .04)
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #edf4ff;
+      color: #194f9b;
+      font-size: 13px;
+      font-weight: 700
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px
+    }
+
+    .research-item {
+      text-align: center;
+      padding: 22px 12px
+    }
+
+    .icon {
+      font-size: 34px;
+      margin-bottom: 10px
+    }
+
+    .research-item b {
+      display: block;
+      margin-bottom: 6px
+    }
+
+    .research-item span {
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    .pub-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px
+    }
+
+    .pub h3 {
+      font-size: 16px;
+      line-height: 1.35;
+      color: #0b3a84;
+      margin-top: 0
+    }
+
+    .pub p {
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      align-items: center
+    }
+
+    .mock {
+      border-radius: 12px;
+      background: #0b2748;
+      padding: 20px;
+      min-height: 300px;
+      box-shadow: 0 10px 28px rgba(11, 39, 72, .2)
+    }
+
+    .mock-inner {
+      background: #fff;
+      border-radius: 8px;
+      height: 260px;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      overflow: hidden
+    }
+
+    .mock-side {
+      background: #112f57
+    }
+
+    .mock-main {
+      padding: 18px
+    }
+
+    .circuit {
+      height: 120px;
+      border: 1px solid #dfe6ef;
+      border-radius: 6px;
+      background: repeating-linear-gradient(0deg, #fff, #fff 22px, #f4f7fb 23px)
+    }
+
+    .bullets {
+      padding-left: 18px
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px
+    }
+
+    .latest-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px
+    }
+
+    .outreach-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px
+    }
+
+    .small {
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    footer {
+      background: var(--navy);
+      color: #fff;
+      padding: 24px 0;
+      margin-top: 0
+    }
+
+    footer .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 13px
+    }
+
+    @media(max-width:900px) {
+
+      .hero-grid,
+      .grid2,
+      .project {
+        grid-template-columns: 1fr
+      }
+
+      .hero-grid {
+        text-align: center
+      }
+
+      .avatar {
+        margin: auto
+      }
+
+      .buttons {
+        justify-content: center
+      }
+
+      .research-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .pub-grid,
+      .news-grid,
+      .latest-grid,
+      .outreach-grid {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media(max-width:560px) {
+      h1 {
+        font-size: 34px
+      }
+
+      .container {
+        padding: 0 18px
+      }
+
+      .pub-grid,
+      .news-grid,
+      .research-grid,
+      .latest-grid,
+      .outreach-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .menu {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .burger {
+      display: none;
+      cursor: pointer;
+    }
+
+    .burger span {
+      display: block;
+      width: 28px;
+      height: 3px;
+      margin: 5px;
+      background: white;
+      transition: 0.3s;
+    }
+
+    @media (max-width: 900px) {
+      .burger {
+        display: block;
+      }
+
+      .menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: navy;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      .menu.active {
+        display: flex;
+      }
+
+      .menu li {
+        padding: 10px;
+      }
+    }
+  </style>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("active");
+    }
+  </script>
+
+  <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+  <script type="text/javascript">
+    var sc_project = 12846908;
+    var sc_invisible = 1;
+    var sc_security = "d5f1f806";
+  </script>
+</head>
+
+<body>
+  <nav>
+    <div class="container navrow">
+      <div class="brand">Moez A. AbdelGawad</div>
+
+      <div class="burger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="menu" id="menu">
+        <a href="../../#about">About</a>
+        <a href="../../#research">Research</a>
+        <a href="../../#publications">Publications</a>
+        <a href="../../#qal">Projects (QAL)</a>
+        <a href="../../#teaching">Teaching</a>
+        <a href="../../#news">News</a>
+        <a href="../../#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <br>
+
+
+  <h2 id="IQ-english" lang="en" dir="ltr">
+    🇺🇸 English Introduction to <a href="../../index.html#qal">QAL</a> (Original, AI-assisted, verified.)
+
+    <center>
+      <p class="small btn">
+        <a href="./AI/index.html">AI-generated / assisted Intro Videos & Slides</a>
+      </p>
+      <p class="small btn">
+        <a href="./AR/index.html">Verified AI-assisted Arabic translation</a>
+      </p>
+      <p class="small btn">
+        <a href="./i18n/index.html">AI-generated translations to 15 other languages</a>
+      </p>
+    </center>
+
+  </h2>
+
+  <div lang="en" dir="ltr">
+
+    <p>
+      <b>What is QAL?</b>
+    </p>
+    <p>
+      QAL is not “a program for running or executing quantum algorithms” in the usual sense. Rather, it is a visual,
+      interactive environment that helps you experiment (“play”) with quantum algorithms and understand their
+      mathematical foundations.
+    </p>
+    <p>
+      <b>What exactly is QAL?</b>
+    </p>
+    <p>
+      The concept of QAL can roughly be expressed as it being a Quantum Algorithms Lab, i.e., a lab for doing
+      experiments on quantum algorithms&mdash;hence the name!
+    </p>
+    <p>
+      More precisely, QAL is a “virtual playground”—i.e., a virtual laboratory in which you interact with quantum
+      algorithms in a visual way, instead of having to write quantum code or to deal only with abstract mathematical
+      formulas.
+    </p>
+    <p>
+      What makes QAL particularly distinctive is that it tries to let you “touch” mathematics, interact with it, and
+      visually see the effect of changing it. For example, instead of simply writing the equation
+      <center>
+        |Ψ'⟩ = U|Ψ⟩
+      </center>
+      to indicate that the quantum operation U transforms the state Ψ into the state Ψ', and treating it as an abstract
+      equation, QAL tries to show you what happens to the vectors, matrices, amplitudes, and phases during the execution
+      of quantum operations.
+    </p>
+    <p>
+      <b>Why is QAL different from an ordinary quantum simulator?</b>
+    </p>
+    <p>
+      This is a very important point. The program’s author, <a href="../../../">Dr. Moez Adel AbdelGawad</a>, explains
+      that QAL is not a quantum simulator in the traditional sense, and it should not be considered a replacement for
+      conventional quantum computing simulators.
+    </p>
+    <p>
+      A traditional simulator often has you work at a level such as
+      <center>Qubit → Gate → Circuit → Measurement</center>
+      whereas QAL tries to go down to a deeper level
+      <center>Quantum algorithm → matrices → vectors → complex amplitudes → mathematical structure.</center>
+    </p>
+    <p>
+      In other words, you can study the internal mathematical structure of the algorithm itself. For this reason, the
+      author uses a nice analogy: interacting with the components of a quantum algorithm is as if you were working with
+      Lego pieces or a Rubik’s Cube—you change things, experiment, and see what happens.
+    </p>
+    <p>
+      <b>What does Linear Algebra have to do with it?</b>
+    </p>
+    <p>
+      This is the most important point for understanding QAL.
+    </p>
+    <p>
+      The operations of a quantum algorithm can be mathematically represented using complex-valued matrices, while a
+      quantum state can be represented using complex-valued vectors. When several quantum operations are placed one
+      after another, their mathematical composition becomes matrix multiplication.
+    </p>
+    <p>
+      Therefore, QAL does not aim to teach you Quantum Computing independently of mathematics. Instead, it tries to make
+      you see the relationship between the two:
+      <center>
+        Quantum Computing → Quantum Algorithms → Linear Algebra → Vectors + Matrices + Complex Numbers → Group Theory /
+        Graph Theory.
+      </center>
+    </p>
+    <p>
+      The <a href="https://easychair.org/publications/preprint/mgxl">research paper introducing QAL</a> specifically
+      mentions linear algebra, group theory, and graph theory as fundamental areas of mathematics that QAL attempts to
+      present visually and interactively.<br>
+    </p>
+    <p>
+      <b>What can you do inside QAL?</b>
+    </p>
+    <p>
+      According to the research paper introducing the program, there are two main levels of interaction with QAL.
+    </p>
+    <p>
+      The higher-level interaction deals with
+    <ul>
+      <li>Qubits
+      <li>Quantum gates
+      <li>Quantum circuits
+      <li>Algorithms
+    </ul>
+
+    This is similar to what you find in other quantum computing tools.
+    </p>
+    <p>
+
+      The deeper mathematical level, which is the distinctive part of QAL, deals with
+    <ul>
+      <li>Vectors
+      <li>Matrices
+      <li>Complex numbers
+      <li>Quantum amplitudes
+      <li>Magnitudes
+      <li>Phases
+      <li>Permutations
+      <li>Groups
+      <li>Graphs
+    </ul>
+
+    The interface attempts to represent these concepts using images, colors, and interactive graphics, allowing you to
+    see the relationships rather than merely reading about them in a book.<br>
+    </p>
+    <p>
+      <b>What does “playing with quantum algorithms” mean?</b>
+    </p>
+    <p>
+      This is at the heart of the QAL philosophy.</p>
+    <p>
+
+      Instead of learning through
+      <center>
+        Read the theory → memorize the equation → write the program → run it,
+      </center>
+      the idea becomes
+      <center>
+        Experiment → change → observe → notice a pattern → form a hypothesis → test it → understand the mathematics.
+      </center>
+    </p>
+    <p>
+      The paper calls this approach “calculated trial and error” or “what-if experimentation”—that is, carrying out
+      deliberate experiments to discover what happens when you change a part of the algorithm.
+    </p>
+    <p>
+      This makes QAL more like an interactive mathematics laboratory than merely a software simulator.<br>
+    </p>
+    <p>
+      <b>Who is QAL intended for?</b>
+    </p>
+    <p>
+      The paper identifies two main groups
+    </p>
+    <p>
+      For education:
+    <ul>
+      <li>School students, particularly STEM students
+      <li>Undergraduate students
+      <li>Computer Science students
+      <li>Mathematics students
+      <li>Physics students
+    </ul>
+    For research:
+    <ul>
+      <li>Graduate students
+      <li>Researchers
+      <li>People working in fields related to mathematics and quantum computing
+    </ul>
+
+    The idea of visual interaction with vectors and matrices is not limited to quantum computing. The paper points out
+    that the way QAL presents linear algebra could also be useful in fields such as
+    <ul>
+      <li>Machine Learning / AI
+      <li>Computer Graphics
+      <li>Cybersecurity
+      <li>Robotics
+      <li>Mathematical Physics
+    </ul>
+    </p>
+    <p>
+      <b>QAL and QAL Lite</b>
+    </p>
+    <p>
+      There are two editions of the program</p>
+    <p>
+
+      <b>QAL</b>: The full edition, containing a larger collection of tools and interactive visualizations.<br>
+      <b>QAL Lite</b>: A lighter edition available online, designed to provide a core part of the QAL experience in a
+      simpler form.<br>
+    </p>
+    <p>
+      <b>The key takeaway</b>
+    </p>
+    <p>
+      If you wanted to summarize QAL in one sentence: QAL is a visual, interactive environment that turns quantum
+      algorithms and the mathematics underlying them into something you can explore and experiment with visually, rather
+      than merely treating them as equations or code.
+    </p>
+    <p>
+      The central idea is not that QAL will do the work for you, but that it will help you develop intuition about why
+      an algorithm works the way it does.
+    </p>
+
+    <center>-----</center>
+
+    <p>
+      <b>Another Description of QAL</b>
+    </p>
+    <p>
+      QAL (Quantum Algorithms Lab) is an innovative, visual, and interactive tool, developed as a web application—a
+      virtual playground—designed for experimenting with quantum algorithms and the mathematics underlying them, such as
+      linear algebra, group theory, and graph theory.
+    </p>
+    <p>
+      The tool was created by <a href="../../../">Dr. Moez AbdelGawad</a> of the Informatics Research Institute (IRI) at
+      Egypt’s <a href="https://www.srtacity.sci.eg">City of Scientific Research and Technological Applications
+        (SRTA-City)</a>.
+    </p>
+    <p>
+      <b>🎯 The Goal of QAL</b>
+    </p>
+    <p>
+      QAL was designed to help students and researchers develop a deep and intuitive understanding of the mathematical
+      properties of quantum algorithms, rather than limiting them to complex mathematical abstractions.
+    </p>
+    <p>
+      The program is based on the idea that the human brain is naturally oriented toward thinking in images. It
+      therefore uses interactive graphics to make quantum concepts clearer and easier to understand.
+    </p>
+    <p>
+      <b>✨ Main Features</b>
+    </p>
+    <p>
+      <i>Visual Presentations of Algorithms — QAL Algorithm Presentations</i><br>
+    </p>
+    <p>
+      QAL presents a quantum algorithm as a sequence of matrices, with a visual representation of each step, while
+      showing the overall operation on the far right.
+    </p>
+    <p>
+      The types of presentations include
+    <ul>
+      <li>Heatmaps
+      <li>Quantum Circuit Diagrams
+      <li>Other innovative visualizations
+    </ul>
+    </p>
+    <p>
+      <i>Direct Interaction</i>
+    </p>
+    <p>
+      Users can select any element of a matrix or vector and directly change its phase and magnitude by moving or
+      dragging graphical symbols, without having to write mathematical notation or coding.<br>
+
+      The results are updated immediately, allowing users to see the effect of their changes on the overall operation.
+    </p>
+    <p>
+      <i>Experimental Mathematics</i>
+    </p>
+    <p>
+      QAL enables users to discover and verify mathematical facts visually and interactively.
+    </p>
+    <p>
+      For example, users can verify that applying a NOT operation followed by two QFT (Quantum Fourier Transform)
+      operations is equivalent to an “add 1” operation (with a clockwise rotation).<br>
+
+      They can also observe that multiplying a matrix on the right by NOT flips its columns, whereas multiplying it on
+      the left flips its rows.
+    </p>
+    <p>
+      <i>MVC Architecture and Web Technologies</i>
+    </p>
+    <p>
+      QAL is built using HTML5/CSS and JavaScript/TypeScript. It uses the D3.js library for graphics and jQuery UI for
+      interface controls.
+    </p>
+    <p>
+      <b>🆚 QAL vs. QAL Lite</b>
+    </p>
+    <p>
+      There are two editions of the tool<br>
+
+      <b>QAL Lite</b>
+    <ul>
+      <li>A lightweight edition available for free online at the <a href="https://q-info.github.io/QAL-Lite">QAL Lite
+          webpage</a>.
+      <li>Contains three basic interactive visualizations:
+        <ul>
+          <li>Heatmaps
+          <li>Quantum circuits
+          <li>A third visualization for textual matrix representations
+        </ul>
+      <li>Suitable for basic and educational use.
+    </ul>
+    </p>
+    <p>
+      <b>Full QAL</b>
+    <ul>
+      <li>Includes everything in QAL Lite, plus seven advanced visualizations known as QA-LA NIVs.
+      <li>QA-LA NIVs are (a group of) novel software technologies that can be registered for patent protection, and they
+        add significant research and educational value by connecting quantum algorithms with graph theory.
+      <li>Suitable for basic and advanced educational and research use.
+    </ul>
+
+    The relationship between the two is somewhat like a regular car (QAL Lite) versus a luxury sports car (QAL): adding
+    QA-LA NIVs to QAL Lite gives QAL considerably greater capabilities and range.
+    </p>
+    <p>
+      <b>📚 Uses</b>
+    </p>
+    <p>
+      <i>In Education</i>
+    </p>
+    <p>
+      QAL targets school students—especially students in STEM schools—as well as undergraduate students in Computer
+      Science, Mathematics, and Physics.<br>
+      It helps them overcome the difficulty of mathematical abstraction by allowing them to treat concepts such as
+      matrices and vectors as tangible objects that they can experiment with and “play” with.
+    </p>
+    <p>
+      <i>In Research</i>
+    </p>
+    <p>
+      QAL can serve as a research assistant for quantum algorithms (QA RA), helping graduate students and researchers
+      understand the structural properties of quantum algorithms.
+    </p>
+    <p>
+      This includes areas such as
+    <ul>
+      <li>Analysis of the eigenvalues (called the spectrum) and eigenvectors of quantum operations.
+      <li>Studying the iterative/recursive (self-similar) structure of efficient quantum operations.
+    </ul>
+    </p>
+
+    <center>
+      <p class="small btn">
+        <a href="./AI/index.html">AI-generated / assisted Intro Videos & Slides</a>
+      </p>
+      <p class="small btn">
+        <a href="./AR/">Verified AI-assisted Arabic translation</a>
+      </p>
+      <p class="small btn">
+        <a href="./i18n/">AI-generated translations to 15 other languages</a>
+      </p>
+    </center>
+
+  </div>
+
+
+  <hr width="95%">
+
+  <center>
+    <p TODO: move to top of page later, when done.>Real (non-AI) QAL Demos/Intros (<u>Under Construction</u>)</p>
+    <a class="btn" href="http://eng.staff.alexu.edu.eg/staff/moez/QAL/vids/">Interacting with QAL Presentation Settings (QAL v.0.8)</a>
+
+    <a class="btn" href="./Brief-Pres.pdf">Experimental Math in QAL</a TODO>
+
+    <a class="btn" href="./Detailed-Pres.pdf">Introducing QAL (Detailed Presentation)</a TODO>
+  </center>
+
+  <br>
+
+  <footer>
+    <div class="container row">
+      <span>© 2026 Moez A. AbdelGawad. All rights reserved.</span>
+      <span>Last updated: Oct. 17, 2026</span>
+    </div>
+  </footer>
+
+</body>
+
+</html>
